@@ -1,6 +1,3 @@
-# FlightSearchEngine_AngularJS_Bootstrap
-This application will show the flight search results for one-way or return trip respectively according to search data.
-
 Flight Search Engine Application using AngularJS
 
 Installation Instructions :
