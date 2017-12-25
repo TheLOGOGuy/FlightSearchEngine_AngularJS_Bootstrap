@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search Engine</title>
+    <link rel="stylesheet" href="css/external/bootstrap.css">
+    <link rel="stylesheet" href="css/external/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/angular-route.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/flightSearchEngineMain/flightSearchEngineMain.js"></script>
+    
+</head>
+<body data-ng-app="flightSearchEngine">
+    <div class="container">
+        <header>
+            <h1><a class="fse-logo" data-ng-href="http://localhost:3000">Flight Search Engine</a></h1>
+        </header>
+        <div class="row">
+            <div data-ng-include="'templates/flightSearchPanel.html'"></div>
+            <div data-ng-view></div>
+        </div>
+        <footer>
+            &copy; 2017 Yatin Aggarwal
+        </footer>
+    </div>
+    <!-- Calling jqueryui datepicker function for departure and return dates -->
+    <script>
+    $(document).ready(function(){
+        $("#oneWayFromDate").datepicker({
+            minDate: 0,
+            numberOfMonths: 1
+        });
+        $("#returnFromDate").datepicker({
+            minDate: 0,
+            numberOfMonths: 1,
+            onSelect: function(selected) {
+                $("#returnToDate").datepicker("option","minDate", selected);
+            }
+        });
+        $("#returnToDate").datepicker({ 
+            minDate: 0,
+            numberOfMonths: 1,
+            onSelect: function(selected) {
+               $("#returnFromDate").datepicker("option","maxDate", selected);
+            }
+        });  
+    });
+    </script>
+</body>
+</html>

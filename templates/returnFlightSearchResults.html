@@ -1,0 +1,79 @@
+<!-- Return flights result template -->
+<div class="col-xs-12 col-sm-8 col-md-9">
+    <div data-ng-if="!flights.length">
+        <div class="no-flights-message">Sorry, no flights are available. Try searching flights between these cities: Delhi, Pune, Bangalore, Kolkata, Hyderabad, Chennai or change price range value and search again.</div>
+    </div>   
+    <div data-ng-if="flights.length">                
+        <div class="row depart-date">
+            <div class="col-xs-12 col-md-6 oneway-flight-head">{{flights[0][0].fromCityName}} &gt; {{flights[0][0].toCityName}} &gt; {{flights[0][0].fromCityName}}</div>
+            <div class="col-xs-12 hidden-md hidden-lg" data-ng-if="departureDate && arrivalDate">
+                <div>Depart: {{departureDate}}</div>
+                <div>Return: {{arrivalDate}}</div>
+            </div>
+            <div class="col-md-6 hidden-xs hidden-sm text-right" data-ng-if="departureDate && arrivalDate">
+                <div>Depart: {{departureDate}}</div>
+                <div>Return: {{arrivalDate}}</div>
+            </div>
+        </div>        
+        <div class="row final-flight-data">
+            <h3 class="flight-price">Rs. {{firstFlightData.flightRate + secondFlightData.flightRate}}</h3>
+            <div class="col-xs-4 flight-details">                        
+                <div>{{firstFlightData.flightNumber}}</div>
+                <div>{{firstFlightData.fromCityCode}} &gt; {{firstFlightData.toCityCode}}</div>
+                <div>Depart: {{firstFlightData.departureTime}}</div>
+                <div>Arrive: {{firstFlightData.arrivalTime}}</div>
+            </div>
+            <div class="col-xs-4 flight-details">                        
+                <div>{{secondFlightData.flightNumber}}</div>
+                <div>{{secondFlightData.fromCityCode}} &gt; {{secondFlightData.toCityCode}}</div>
+                <div>Depart: {{secondFlightData.departureTime}}</div>
+                <div>Arrive: {{secondFlightData.arrivalTime}}</div>
+            </div>
+            <div class="col-xs-4 book-flight-btn">
+                <button type="button" class="btn btn-primary">Book this flight</button>
+            </div>  
+        </div>        
+        <div class="row">
+            <div class="col-xs-6">
+                <p class="all-flight-head">{{flights[0][0].fromCityName}} &gt; {{flights[0][0].toCityName}}</p>
+                <div>
+                    <ul class="flight-result-section">
+                        <li class="row" data-ng-repeat="firstFlight in flights[0]">
+                            <h3 class="flight-price">Rs. {{firstFlight.flightRate}}</h3>
+                            <div class="col-xs-12 col-sm-8 flight-details">                        
+                                <div>{{firstFlight.flightNumber}}</div>
+                                <div>{{firstFlight.fromCityCode}} &gt; {{firstFlight.toCityCode}}</div>
+                                <div>Depart: {{firstFlight.departureTime}}</div>
+                                <div>Arrive: {{firstFlight.arrivalTime}}</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 text-center book-flight-btn">
+                                <button type="button" class="btn btn-primary" data-ng-click="firstSelectedFlight(firstFlight)">Select</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <p class="all-flight-head">{{flights[1][0].fromCityName}} &gt; {{flights[1][0].toCityName}}</p>
+                <div>
+                    <ul class="flight-result-section">
+                        <li class="row" data-ng-repeat="returnFlight in flights[1]">
+                            <h3 class="flight-price">Rs. {{returnFlight.flightRate}}</h3>
+                            <div class="col-xs-12 col-sm-8 flight-details">                        
+                                <div>{{returnFlight.flightNumber}}</div>
+                                <div>{{returnFlight.fromCityCode}} &gt; {{returnFlight.toCityCode}}</div>
+                                <div>Depart: {{returnFlight.departureTime}}</div>
+                                <div>Arrive: {{returnFlight.arrivalTime}}</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 text-center book-flight-btn">
+                                <button type="button" class="btn btn-primary" data-ng-click="secondSelectedFlight(returnFlight)">Select</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

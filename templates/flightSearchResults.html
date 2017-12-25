@@ -1,0 +1,22 @@
+<!-- All available flights template -->
+<div class="col-xs-12 col-sm-8 col-md-9">
+    <div>
+        <p class="all-flight-head">All available flights</p>
+        <div>
+            <ul class="flight-result-section">
+                <li class="row" data-ng-repeat="flight in flightData">
+                    <h3 class="flight-price">Rs. {{flight.flightRate}}</h3>
+                    <div class="col-xs-7 flight-details">                        
+                        <div>{{flight.flightNumber}}</div>
+                        <div>{{flight.fromCityCode}} &gt; {{flight.toCityCode}}</div>
+                        <div>Depart: {{flight.departureTime}}</div>
+                        <div>Arrive: {{flight.arrivalTime}}</div>
+                    </div>
+                    <div class="col-xs-5 text-right book-flight-btn">
+                        <button type="button" class="btn btn-primary">Book this flight</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
