@@ -21,7 +21,7 @@
         "grunt-contrib-concat": "^1.0.1",
         "grunt-karma": "^0.12.1",
         "jasmine-core": "^2.4.1",
-        "karma": "^0.13.21",
+        "karma": "^2.0.3",
         "karma-chrome-launcher": "^0.2.2",
         "karma-jasmine": "^0.3.7",
         "karma-ng-html2js-preprocessor": "^0.2.1"
